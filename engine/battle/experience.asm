@@ -27,57 +27,6 @@ GainExperience:
 	ld e, l
 	ld hl, wEnemyMonBaseStats
 	ld c, NUM_STATS
-.gainStatExpLoop
-	ld a, [hli]
-	ld b, a ; enemy mon base stat
-	ld a, [de] ; stat exp
-	add b ; add enemy mon base state to stat exp
-	ld [de], a
-	jr nc, .nextBaseStat
-; if there was a carry, increment the upper byte
-	dec de
-	ld a, [de]
-	inc a
-	jr z, .maxStatExp ; jump if the value overflowed
-	ld [de], a
-	inc de
-	jr .nextBaseStat
-.maxStatExp ; if the upper byte also overflowed, then we have hit the max stat exp
-	ld a, $ff
-	ld [de], a
-	inc de
-	ld [de], a
-.nextBaseStat
-	dec c
-	jr z, .statExpDone
-	inc de
-	inc de
-	jr .gainStatExpLoop
-.statExpDone
-	xor a
-	ldh [hMultiplicand], a
-	ldh [hMultiplicand + 1], a
-	ld a, [wEnemyMonBaseExp]
-	ldh [hMultiplicand + 2], a
-	ld a, [wEnemyMonLevel]
-	ldh [hMultiplier], a
-	call Multiply
-	ld a, 7
-	ldh [hDivisor], a
-	ld b, 4
-	call Divide
-	ld hl, wPartyMon1OTID - (wPartyMon1DVs - 1)
-	add hl, de
-	ld b, [hl] ; party mon OTID
-	inc hl
-	ld a, [wPlayerID]
-	cp b
-	jr nz, .tradedMon
-	ld b, [hl]
-	ld a, [wPlayerID + 1]
-	cp b
-	ld a, 0
-	jr z, .next
 .tradedMon
 	call BoostExp ; traded mon exp boost
 	ld a, 1
