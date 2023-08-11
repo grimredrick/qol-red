@@ -627,7 +627,7 @@ KadabraEvosMoves:
 
 GravelerEvosMoves:
 ; Evolutions
-	db EV_TRADE, 1, GOLEM
+	db EV_LEVEL, 1, GOLEM
 	db 0
 ; Learnset
 	db 11, DEFENSE_CURL
@@ -652,7 +652,7 @@ ChanseyEvosMoves:
 
 MachokeEvosMoves:
 ; Evolutions
-	db EV_TRADE, 1, MACHAMP
+	db EV_LEVEL, 1, MACHAMP
 	db 0
 ; Learnset
 	db 20, LOW_KICK
@@ -1686,7 +1686,7 @@ MissingNo92EvosMoves:
 
 HaunterEvosMoves:
 ; Evolutions
-	db EV_TRADE, 1, GENGAR
+	db EV_LEVEL, 1, GENGAR
 	db 0
 ; Learnset
 	db 29, HYPNOSIS
@@ -1695,7 +1695,7 @@ HaunterEvosMoves:
 
 AbraEvosMoves:
 ; Evolutions
-	db EV_LEVEL, 16, KADABRA
+	db EV_LEVEL, 1, ALAKAZAM
 	db 0
 ; Learnset
 	db 0
