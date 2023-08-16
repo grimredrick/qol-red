@@ -60,8 +60,8 @@ ItemPrices::
 	bcd3 1   ; DIRE_HIT
 	bcd3 1    ; COIN
 	bcd3 1   ; FRESH_WATER
-	bcd3 300   ; SODA_POP
-	bcd3 350   ; LEMONADE
+	bcd3 1   ; SODA_POP
+	bcd3 1   ; LEMONADE
 	bcd3 0     ; S_S_TICKET
 	bcd3 0     ; GOLD_TEETH
 	bcd3 1   ; X_ATTACK
